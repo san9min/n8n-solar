@@ -1,0 +1,73 @@
+{
+  "name": "n8n-nodes-solar-sm",
+  "version": "0.4.2",
+  "description": "Solar LLM and Embeddings nodes for n8n",
+  "license": "MIT",
+  "homepage": "https://github.com/ehpyeon/n8n-nodes-solar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ehpyeon/n8n-nodes-solar.git"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && npm run copy-assets",
+    "copy-assets": "cp src/upstage.svg src/upstage_v2.svg dist/ && cp src/nodes/LmChatUpstage/upstage_v2.svg dist/nodes/LmChatUpstage/ && cp src/nodes/EmbeddingsUpstage/upstage_v2.svg dist/nodes/EmbeddingsUpstage/ && cp src/nodes/LmChatModelUpstage/upstage_v2.svg dist/nodes/LmChatModelUpstage/ && cp src/nodes/EmbeddingsUpstageModel/upstage_v2.svg dist/nodes/EmbeddingsUpstageModel/ && cp src/nodes/DocumentParsingUpstage/upstage_v2.svg dist/nodes/DocumentParsingUpstage/ && cp src/nodes/InformationExtractionUpstage/upstage_v2.svg dist/nodes/InformationExtractionUpstage/ && cp src/nodes/InformationExtractionSchemaUpstage/upstage_v2.svg dist/nodes/InformationExtractionSchemaUpstage/ || true",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-node",
+    "n8n-community-node-package",
+    "solar",
+    "upstage",
+    "llm",
+    "ai",
+    "embeddings",
+    "machine-learning"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/UpstageApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/LmChatUpstage/LmChatUpstage.node.js",
+      "dist/nodes/EmbeddingsUpstage/EmbeddingsUpstage.node.js",
+      "dist/nodes/LmChatModelUpstage/LmChatModelUpstage.node.js",
+      "dist/nodes/EmbeddingsUpstageModel/EmbeddingsUpstageModel.node.js",
+      "dist/nodes/DocumentParsingUpstage/DocumentParsingUpstage.node.js",
+      "dist/nodes/InformationExtractionUpstage/InformationExtractionUpstage.node.js",
+      "dist/nodes/InformationExtractionSchemaUpstage/InformationExtractionSchemaUpstage.node.js"
+
+
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": ">=1.0.0",
+    "n8n-core": ">=1.0.0",
+    "@langchain/core": ">=0.1.0",
+    "@langchain/openai": ">=0.0.1"
+  },
+  "author": {
+    "name": "Euihyeon Pyeon",
+    "email": "euihyeon.pyeon@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ehpyeon/n8n-nodes-solar/issues"
+  }
+}
